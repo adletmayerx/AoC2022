@@ -6,6 +6,9 @@ const lines = readFileSync("./day01/input.txt", { encoding: "utf-8" }) // read i
 const elfCaloriesSumArray = lines.map((line) => line.split("\n").reduce((acc, cur) => {
     return acc + Number(cur);
 }, 0));
-let maxCalories = -Infinity;
-elfCaloriesSumArray.forEach((elf) => (maxCalories = Math.max(maxCalories, elf)));
+elfCaloriesSumArray.sort();
+const maxCalories = elfCaloriesSumArray[elfCaloriesSumArray.length - 1];
+console.log(maxCalories);
+const topThreeCaloriesSum = elfCaloriesSumArray.slice(-3).reduce((acc, cur) => acc + cur, 0);
+console.log(topThreeCaloriesSum);
 //# sourceMappingURL=solution.js.map

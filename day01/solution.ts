@@ -9,6 +9,9 @@ const elfCaloriesSumArray = lines.map((line) =>
     return acc + Number(cur);
   }, 0)
 );
-let maxCalories = -Infinity;
 
-elfCaloriesSumArray.forEach((elf) => (maxCalories = Math.max(maxCalories, elf)));
+elfCaloriesSumArray.sort();
+const maxCalories = elfCaloriesSumArray[elfCaloriesSumArray.length - 1];
+console.log(maxCalories);
+const topThreeCaloriesSum = elfCaloriesSumArray.slice(-3).reduce((acc, cur) => acc + cur, 0);
+console.log(topThreeCaloriesSum);
