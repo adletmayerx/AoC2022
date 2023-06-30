@@ -16,6 +16,21 @@ const OUTCOME_POINTS = {
   "C Y": 2,
   "C Z": 6,
 } as Record<string, number>;
-
 const totalPoints = lines.reduce((acc, cur) => acc + OUTCOME_POINTS[cur], 0);
+
 console.log(totalPoints)
+
+const REAL_OUTCOME_POINTS = {
+  "A X": 3,
+  "A Y": 4,
+  "A Z": 8,
+  "B X": 1,
+  "B Y": 5,
+  "B Z": 9,
+  "C X": 2,
+  "C Y": 6,
+  "C Z": 7,
+} as Record<string, number>;
+const realTotalPoints = lines.reduce((acc, cur) => acc + REAL_OUTCOME_POINTS[cur], 0);
+
+console.log(realTotalPoints)
