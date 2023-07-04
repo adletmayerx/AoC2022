@@ -31,4 +31,28 @@ compartmentsArray.forEach((compartments) => {
     }
 });
 console.log(sumOfThePriorities);
+let sumOfBadgesPriorities = 0;
+function findBadge(elves) {
+    let lib = {};
+    elves.forEach((line, index) => {
+        for (let char of new Set(line.split(""))) {
+            if (!lib[char]) {
+                lib[char] = [index];
+                continue;
+            }
+            lib[char].push(index);
+            if (lib[char].length !== 3) {
+                continue;
+            }
+            sumOfBadgesPriorities += PRIORITIES.indexOf(char) + 1;
+            lib = {};
+            break;
+        }
+    });
+    if (!elves.length) {
+        return;
+    }
+}
+findBadge(lines);
+console.log(sumOfBadgesPriorities);
 //# sourceMappingURL=solution.js.map
