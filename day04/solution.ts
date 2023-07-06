@@ -27,3 +27,26 @@ lines.forEach((line) => {
 
 console.log(partOneRes);
 
+// part2
+let partTwoRes = 0;
+
+lines.forEach((line) => {
+  const elves = line.split(",");
+  const [firstSectionFirst, secondSectionFirst] = elves[0].split("-");
+  const [firstSectionSecond, secondSectionSecond] = elves[1].split("-");
+
+  if (
+    Number(firstSectionFirst) <= Number(firstSectionSecond) &&
+    Number(secondSectionFirst) >= Number(firstSectionSecond)
+  ) {
+    partTwoRes++;
+  } else if (
+    Number(firstSectionFirst) >= Number(firstSectionSecond) &&
+    Number(firstSectionFirst) <= Number(secondSectionSecond)
+  ) {
+    partTwoRes++;
+  }
+});
+
+console.log(partTwoRes);
+
